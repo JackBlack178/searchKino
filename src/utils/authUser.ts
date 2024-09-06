@@ -41,6 +41,9 @@ export const authUser = async ({
   if (type === "signUp") {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setAuthLoading(false);
+    if (password !== passwordConfirmation) {
+      setIsError(true);
+    }
     closeDialog();
   }
 };

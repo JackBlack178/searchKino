@@ -56,6 +56,16 @@ const Header = () => {
             >
               Сериалы
             </CustomNavLink>
+            {auth && (
+              <CustomNavLink
+                to={"favorites"}
+                className={cl.header__link_item}
+                activeClassName={cl.active_link}
+                data_title_type={"nav"}
+              >
+                Любимые
+              </CustomNavLink>
+            )}
           </div>
 
           {!auth && (
