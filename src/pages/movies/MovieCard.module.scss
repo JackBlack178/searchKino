@@ -1,0 +1,33 @@
+.movie {
+  width: 250px;
+  height: 350px;
+  display: block;
+
+  &__wrapper {
+    position: relative;
+  }
+
+
+  &__rating {
+    content: attr(data-rating);
+    position: absolute;
+    z-index: 5;
+    top: 5px;
+    left: 5px;
+    padding: 2px;
+    color: var(--color-grey-text)
+
+  }
+
+  &__high_rating {
+    background-color: #1ba81b;
+  }
+
+  &__medium_rating {
+    background-color: #9bad1d;
+  }
+
+  &__low_rating {
+    background-color: #ff581c;
+  }
+}

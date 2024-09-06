@@ -1,0 +1,9 @@
+@import '@styles/styles';
+
+.section {
+  composes: container;
+  margin-top:20px;
+  display: flex;
+  column-gap: 15px;
+  justify-content: center;
+}

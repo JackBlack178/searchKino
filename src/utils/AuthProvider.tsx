@@ -1,7 +1,7 @@
 import { useAppSelector } from "@utils/redux.ts";
 import { userSlice } from "@models/user/userSlice.ts";
-import { ReactElement, ReactNode } from "react";
-import { Navigate, useLocation, useParams } from "react-router-dom";
+import { ReactNode } from "react";
+import { Navigate, useLocation } from "react-router-dom";
 
 const AuthProvider = ({ children }: { children?: ReactNode }) => {
   const auth = useAppSelector(userSlice.selectors.isLoggined);

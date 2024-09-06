@@ -8,6 +8,7 @@ import { Home } from "@pages/home/Home.tsx";
 import { Movies } from "@pages/movies/Movies.tsx";
 import { Series } from "@pages/series/Series.tsx";
 import { Favorites } from "@pages/favorites/Favorites.tsx";
+import { MoviePage } from "@pages/movies/movie-page/MoviePage.tsx";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
+        <Route path="movies/:id" element={<MoviePage />} />
         <Route path="series" element={<Series />} />
         <Route path="favorites" element={<Favorites />} />
       </Route>
