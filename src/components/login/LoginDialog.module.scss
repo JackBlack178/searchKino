@@ -76,4 +76,37 @@
       opacity: 0.8;
     }
   }
+
+  &__loader {
+    margin: 0 auto;
+
+  }
+
+  &__error {
+    color: #f54f4f;
+    font-size: 16px;
+  }
+}
+
+
+.errorTextEnter {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.errorTextEnterActive {
+  opacity: 1;
+  transition: opacity 200ms, transform 200ms;
+  transform: scale(1);
+}
+
+.errorTextExit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.errorTextExitActive {
+  opacity: 0;
+  transition: opacity 200ms, transform 200ms;
+  transform: scale(0);
 }

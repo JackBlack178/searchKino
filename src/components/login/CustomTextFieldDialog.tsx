@@ -6,6 +6,7 @@ interface CustomTextFieldDialogProps {
   placeHolder?: string;
   name: string;
   type: "password" | "text";
+  onChange: () => void;
 }
 
 const CustomTextFieldDialog: FC<CustomTextFieldDialogProps> = ({
@@ -13,9 +14,11 @@ const CustomTextFieldDialog: FC<CustomTextFieldDialogProps> = ({
   name,
   placeHolder,
   type,
+  onChange,
 }) => {
   return (
     <TextField
+      onChange={onChange}
       required
       size={"small"}
       className={className}

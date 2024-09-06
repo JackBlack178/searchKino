@@ -9,11 +9,12 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface CustomTextFieldDialogForPasswordProps {
   className?: string;
+  onChange: () => void;
 }
 
 const CustomTextFieldDialogForPassword: FC<
   CustomTextFieldDialogForPasswordProps
-> = ({ className }) => {
+> = ({ className, onChange }) => {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -25,6 +26,7 @@ const CustomTextFieldDialogForPassword: FC<
       required
     >
       <OutlinedInput
+        onChange={onChange}
         id="outlined-adornment-password"
         type={showPassword ? "text" : "password"}
         placeholder={"Пароль"}
