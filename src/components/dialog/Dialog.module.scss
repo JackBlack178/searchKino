@@ -1,0 +1,79 @@
+@import "@styles/styles";
+
+.dialog {
+  position: absolute;
+  @include abs-center;
+
+  height: 500px;
+  width: 35%;
+  max-width: 700px;
+  min-width: 330px;
+  background-color: var(--color-dark-alt);
+  border-radius: 10px;
+
+  padding: 30px;
+  color: var(--color-light);
+
+  &__header {
+    display: flex;
+    justify-content: end;
+
+    &_icon_wrapper {
+      transition: all var(--duration) ease;
+
+      @include hover {
+        opacity: 0.6;
+      }
+    }
+
+    &_icon {
+      cursor: pointer;
+      color:white;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin-bottom: 20px;
+
+    &_button {
+      color: var(--color-grey-text) !important;
+      padding: 0 !important;
+      @include smoothUnderline;
+
+      &.button_active {
+        &:after {
+          @include smoothUnderlineActive;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: flex-end;
+    align-items: center;
+    height: calc(100% - 80px);
+  }
+
+  &__input {
+    background-color: var(--color-light);
+    width: 250px;
+  }
+
+  &__button {
+    color: var(--color-dark) !important;
+    background-color: white !important;
+    align-self: end;
+    transition: all var(--duration) ease !important;
+    margin-top:auto !important;
+    @include hover {
+      opacity: 0.8;
+    }
+  }
+}

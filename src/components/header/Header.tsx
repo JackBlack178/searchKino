@@ -5,8 +5,15 @@ import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { CustomNavLink } from "./CustomNavLink.tsx";
 import { CustomTextFieldHeader } from "./CustomTextFieldHeader.tsx";
+import { Dialog } from "@components/dialog/Dialog.tsx";
+import { useState } from "react";
 
 const Header = () => {
+  const handleSignClick = () => {
+    if (!dialogOpen) setDialogOpen(true);
+  };
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   return (
     <header className={cl.header}>
       <div className={cl.header__inner}>
@@ -46,10 +53,15 @@ const Header = () => {
             </CustomNavLink>
           </div>
 
-          <Button className={cl.header__button} variant={"contained"}>
+          <Button
+            className={cl.header__button}
+            variant={"contained"}
+            onClick={handleSignClick}
+          >
             Sign in/Sign up
           </Button>
         </nav>
+        <Dialog open={dialogOpen} closeDialog={() => setDialogOpen(false)} />
       </div>
     </header>
   );
