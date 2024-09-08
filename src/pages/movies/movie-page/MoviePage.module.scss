@@ -64,8 +64,8 @@
   }
 
   &__extra {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+
     gap: 20px;
     margin-top: 20px;
 
@@ -80,8 +80,13 @@
       &_list {
         list-style: none;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap:20px 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+
+        @include desktop {
+          grid-template-columns: 1fr 1fr;
+
+        }
 
         @include tablet {
           justify-content: center;
@@ -93,12 +98,12 @@
       }
 
       &_item {
-
       }
 
     }
 
     &_actors {
+      min-width: 40%;
 
       &_list {
         list-style: none;

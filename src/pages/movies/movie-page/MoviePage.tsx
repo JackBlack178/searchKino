@@ -89,22 +89,26 @@ const MoviePage = () => {
           </div>
           <div className={cl.movie_page__extra}>
             <div className={cl.movie_page__extra_films}>
-              <h2 className={cl.movie_page__subtitle}>Похожие фильмы</h2>
-              <ul className={cl.movie_page__extra_films_list}>
-                {movie.similarMovies
-                  .filter((film) => film.id && film.name)
-                  .map((similarMovie, index) => (
-                    <li key={index}>
-                      <MovieCard
-                        id={similarMovie.id}
-                        rating={similarMovie?.rating?.kp}
-                        previewUrl={similarMovie.poster.previewUrl}
-                      />
-                    </li>
-                  ))}
+              {movie.similarMovies && (
+                <>
+                  <h2 className={cl.movie_page__subtitle}>Похожие фильмы</h2>
+                  <ul className={cl.movie_page__extra_films_list}>
+                    {movie.similarMovies
+                      .filter((film) => film.id && film.name)
+                      .map((similarMovie, index) => (
+                        <li key={index}>
+                          <MovieCard
+                            id={similarMovie.id}
+                            rating={similarMovie?.rating?.kp}
+                            previewUrl={similarMovie.poster.previewUrl}
+                          />
+                        </li>
+                      ))}
 
-                <li className={cl.movie_page__extra_films_item}></li>
-              </ul>
+                    <li className={cl.movie_page__extra_films_item}></li>
+                  </ul>
+                </>
+              )}
             </div>
             <div className={cl.movie_page__extra_actors}>
               <h2 className={cl.movie_page__subtitle}>Актеры</h2>
