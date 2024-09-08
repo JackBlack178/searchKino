@@ -31,6 +31,7 @@ export const authUser = async ({
       dispatch(userSlice.actions.storeUser(user));
       closeDialog();
       setAuthLoading(false);
+      setIsError(false);
       return;
     } else {
       setAuthLoading(false);
@@ -42,7 +43,7 @@ export const authUser = async ({
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setAuthLoading(false);
     if (password !== passwordConfirmation) {
-      setIsError(true);
+      setIsError(false);
     }
     closeDialog();
   }
