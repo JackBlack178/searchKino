@@ -1,12 +1,16 @@
 .movie {
   width: 250px;
   height: 350px;
+  overflow: hidden;
   display: block;
 
   &__wrapper {
-    position: relative;
+
   }
 
+  &__img {
+
+  }
 
   &__rating {
     content: attr(data-rating);
@@ -20,14 +24,14 @@
   }
 
   &__high_rating {
-    background-color: #1ba81b;
+    background-color: var(--color-green-bg);
   }
 
   &__medium_rating {
-    background-color: #9bad1d;
+    background-color: var(--color-yellow-bg);
   }
 
   &__low_rating {
-    background-color: #ff581c;
+    background-color: var(--color-red-bg);
   }
 }

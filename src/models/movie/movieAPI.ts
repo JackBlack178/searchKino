@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Movie } from "@models/movie/types.ts";
 import { rootReducer } from "@utils/rootReducer.ts";
 import { movieSchema } from "./schemas.ts";
 

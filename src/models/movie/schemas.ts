@@ -2,57 +2,77 @@ import { z } from "zod";
 
 export const movieSchema = z.object({
   id: z.number(),
-  name: z.string().optional(),
-  alternativeName: z.string().optional(),
-  type: z.string(),
-  year: z.number().optional(),
-  description: z.string().optional(),
-  shortDescription: z.string().optional(),
-  slogan: z.string().optional(),
-  rating: z.object({
-    kp: z.number().optional(),
-    imdb: z.number().optional(),
-    tmdb: z.number().optional(),
-    filmCritics: z.number().optional(),
-    russianFilmCritics: z.number().optional(),
-    await: z.number().nullable(),
-  }),
-  movieLength: z.number().optional(),
-  ageRating: z.number().optional(),
-  logo: z.object({
-    url: z.string().optional(),
-  }),
-  poster: z.object({
-    url: z.string().optional(),
-    previewUrl: z.string().optional(),
-  }),
-  videos: z.object({
-    trailers: z.array(
+  name: z.string().optional().nullable(),
+  alternativeName: z.string().optional().nullable(),
+  type: z.string().optional().nullable(),
+  year: z.number().optional().nullable(),
+  description: z.string().optional().nullable(),
+  shortDescription: z.string().optional().nullable(),
+  slogan: z.string().optional().nullable(),
+  rating: z
+    .object({
+      kp: z.number().optional().nullable(),
+      imdb: z.number().optional().nullable(),
+      tmdb: z.number().optional().nullable(),
+      filmCritics: z.number().optional().nullable(),
+      russianFilmCritics: z.number().optional().nullable(),
+      await: z.number().nullable(),
+    })
+    .optional(),
+  movieLength: z.number().optional().nullable(),
+  ageRating: z.number().optional().nullable(),
+  logo: z
+    .object({
+      url: z.string().optional().nullable(),
+    })
+    .optional()
+    .nullable(),
+  poster: z
+    .object({
+      url: z.string().optional().nullable(),
+      previewUrl: z.string().optional().nullable(),
+    })
+    .optional()
+    .nullable(),
+
+  genres: z
+    .array(
+      z.object({
+        name: z.string().nullable(),
+      }),
+    )
+    .optional()
+    .nullable(),
+
+  persons: z
+    .array(
       z
         .object({
-          url: z.string().optional(),
-          name: z.string().optional(),
-          site: z.string().optional(),
-          type: z.string().optional(),
-          size: z.string().optional(),
+          id: z.number().nullable().nullable(),
+          name: z.string().nullable().nullable(),
         })
         .optional(),
-    ),
-    teasers: z
-      .array(
-        z.object({
-          url: z.string().optional(),
-          name: z.string().optional(),
-          site: z.string().optional(),
-          type: z.string().optional(),
-          size: z.number(),
-        }),
-      )
-      .optional(),
-  }),
-  genres: z.array(
-    z.object({
-      name: z.string(),
-    }),
-  ),
+    )
+    .optional(),
+
+  similarMovies: z
+    .array(
+      z
+        .object({
+          id: z.number().nullable(),
+          rating: z
+            .object({
+              kp: z.number().optional(),
+            })
+            .optional(),
+          name: z.string().nullable().optional(),
+          year: z.number().optional().optional(),
+          type: z.string().nullable().optional(),
+          poster: z.object({
+            previewUrl: z.string().optional(),
+          }),
+        })
+        .optional(),
+    )
+    .optional(),
 });

@@ -1,6 +1,6 @@
 body {
   @include fluid-text(18, 16);
-
+  background-color: var(--color-grey-text);
   color: var(--color-grey-text);
 
 }
@@ -18,7 +18,11 @@ h6 {
   margin-inline: auto;
   max-width: var(--container-max-width);
   padding-inline: var(--container-padding-x);
+  background-color: var(--color-light);
+  padding-block:20px 50px;
+  min-height: calc(100vh - 81px);
 }
+
 
 a {
   text-decoration: none;
